@@ -41,6 +41,4 @@ int main(int argc, char* argv[])
 		printf("line = %s \n", forest_array[i]);
 		free(forest_array[i]);
 	}
-
-
 }
