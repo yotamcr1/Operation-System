@@ -4,6 +4,28 @@
 #include <math.h>
 
 
+
+
+
+char** str_to_2d_array (char *string, int tree_size) {
+
+    char** table_arr = (char**)malloc( (tree_size) * sizeof(char*));
+	char* data = 
+
+	printf("string - %s\n", string);
+	for (int i = 0; i < tree_size; i++)
+	{
+		for (int j = 0; j < tree_size; j++)
+		{
+			arr[i][j] = string[tree_size * i + j]; //Initialized the forset according to the format. arr[i] is the i row, columns are the j
+		}
+		arr[i][tree_size] = '/0';
+	}
+	return arr;
+}
+
+
+
 //argc - number of argument passed, argv - the array contains the arguments. 
 //argv[0] - the name of the programs itself.
 int main(int argc, char* argv[])
@@ -12,31 +34,13 @@ int main(int argc, char* argv[])
 	if (!sqrt(tree_size) == ceil(sqrt(tree_size))) {
 		printf("The woods is not a square");
 	}
-
-}
-
-
-char** str_to_2d_array(char* str, int tree_size) {
-
-    char** arr = (char**)malloc(tree_size * sizeof(char*));
-	if (NULL == arr) {
-		pritnf("Allocate memory failed");
-		//TBD: needs to finish the program
-	}
-	for (int i = 0; i < tree_size; i++) {
-		arr[i] = (char*)malloc(tree_size * sizeof(char));
-		if (NULL == arr[i]) {
-			pritnf("Allocate memory failed");
-			//TBD: needs to finish the program
-		}
+	tree_size = sqrt(tree_size);
+	printf("tree size - %d", tree_size);
+	char** forest_array = str_to_2d_array(argv[1], tree_size);
+	for (int i = 0; i <tree_size; i++) {
+		printf("line = %s \n", forest_array[i]);
+		free(forest_array[i]);
 	}
 
-	for (int i = 0; i < tree_size; i++)
-	{
-		for (int j = 0; j < tree_size; j++)
-		{
-			arr[i][j] = str[tree_size * i + j]; //Initialized the forset according to the format. arr[i] is the i row, columns are the j
-		}
-	}
-	return arr;
+
 }
